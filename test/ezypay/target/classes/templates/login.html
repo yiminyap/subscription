@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Subscription </title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body class="login-bg">
+
+
+<div class="container">
+    <form class="form-signin" th:action="@{/login}" method="post">
+        <h2 class="form-signin-heading"><i class="logo-ico"></i></h2>
+       
+        <input type="text" class="form-control" name="username" id="username" value="" data-index="0" placeholder="username" required="true" autofocus="true"/>
+        <input type="password" class="form-control" name="password" id="password" value="" data-index="1" placeholder="password" required="true"/>
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                Invalid username and password.
+            </div>
+        </div>
+        <button class="btn btn-lg btn-block" tabindex="3" type="submit" id="submitBtn">Login</button>
+      </form>
+</div>
+
+</body>
+</html>

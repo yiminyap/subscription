@@ -1,0 +1,31 @@
+server:
+  port: 8099
+  error:
+    whitelabel:
+      enabled: false  
+---
+spring:
+  profiles: 
+    active: dev   
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+          
+  main:
+    #当遇到同样名字的时候，是否允许覆盖注册
+    allow-bean-definition-overriding: true
+    
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost
+    username: 
+    password: 
+    driverClassName: org.postgresql.Driver
+    
+  thymeleaf:
+    cache: false  
+        
+mybatis:
+  mapper-locations: classpath*:mybatis/*.xml

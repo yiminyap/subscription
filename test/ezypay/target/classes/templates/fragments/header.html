@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header-css">
+        <!-- this is header-css -->
+        <script src="/webjars/jquery/1.11.1/jquery.min.js"></script> 
+        
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.4.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" th:href="@{/css/signin.css}" href="../../css/signin.css" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" href="../../css/style.css" />
+        <link rel="stylesheet" th:href="@{/css/footer.css}" href="../../css/footer.css" />
+    </div>
+</head>
+<body>
+<div th:fragment="header">
+    <!-- this is header -->
+     <nav class="navbar navbar-inverse navbar-fixed-top style-default" role="navigation">
+      <div class="container-fluid">
+       
+        <div class="navbar-header">
+      <a class="navbar-brand" href="#">Subscription Form</a>
+
+    </div>
+         <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout" title="退出"><i class="glyphicon glyphicon-log-out"></i></a></li>
+        </ul>   
+      </div>
+    </nav>
+</div>
+
+</body>
+</html>

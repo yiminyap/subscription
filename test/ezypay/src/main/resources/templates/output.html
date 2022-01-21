@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Subscription Fomr Output</title>
+<div th:replace="fragments/header :: header-css" />
+<style type="text/css">
+.output {
+	margin: 20px 10px 30px 10px;
+}
+
+</style>
+</head>
+<body>
+	<div th:replace="fragments/header :: header" />
+	<div class="container-fluid">
+		<!-- uiView: -->
+		<div class="main ng-scope" ui-view="" style="">
+			<div class="box ng-scope">
+				<div class="title">
+					<h2>Subscription Form Output</h2>
+				</div>
+				<!-- uiView: -->
+				<div ui-view="" class="ng-scope" style="">
+					<!-- uiView: -->
+					<div ui-view="" class="ng-scope">
+						<div class="toolbar">
+							<div class="toolbar">
+								<h2>Subscription Details</h2>
+								<span class="output">Amount:</span><span th:text="${detailsOutput.amount}"></span><br /> 
+								<span class="output">Subscription Type:</span><span th:text="${detailsOutput.subscriptionType}"></span><br />
+								<span class="output">Invoice Date:</span><span th:text="${detailsOutput.invoiceDates}"></span><br />  
+									
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

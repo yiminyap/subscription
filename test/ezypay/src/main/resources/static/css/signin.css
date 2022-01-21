@@ -1,0 +1,86 @@
+body {
+    padding-top: 150px;
+    padding-bottom: 40px;
+    font-family:"Microsoft YaHei";
+    background:none;
+  }
+  .login-bg {
+    background-image: linear-gradient(90deg, rgba(21,0,27,1) 0%, rgba(80,9,121,1) 45%, rgba(252,0,255,1) 100%);
+  }
+  .signin-logo {
+  text-align:center;
+  margin-bottom:30px;
+  }
+  .form-signin {
+  margin: 0 auto;
+  padding: 60px 50px 50px;
+  float: none;
+  max-width: 420px;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+  border-radius:10px;
+  background: #fff;
+  color:#ddd;
+  }
+  .form-signin .form-signin-heading {
+    margin-top:-100px;
+    font-size:24px;
+    text-align:center;
+  }
+  .logo-ico {
+      height: 80px;
+      width: 80px;
+      border-radius: 40px;
+      background:#304ffe  url(../img/login.png) no-repeat;
+      display: inline-block;
+      box-shadow: 0 0 6px 3px rgba(48, 79, 254, 0.2);
+  }
+  
+  .form-signin .checkbox {
+    margin-bottom: 15px;
+  }
+  .form-signin .checkbox {
+    font-weight: normal;
+  }
+  .form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px 10px 10px 0;
+    font-size: 16px;
+      border-radius: 0;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+          box-shadow: none;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: 18px;
+    border-color: #e6e6e6;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 18px;
+    border-color: #e6e6e6;
+  }
+  .yzm { position:relative;}
+  .yzm img { position:absolute; right:1px; top:0px; z-index:999; width:140px; height:42px; }
+  
+  .form-signin .btn {
+      color: #fff;
+      border: 1px solid #304ffe;
+      background: #304ffe;
+      margin-top: 50px;
+      box-shadow: 0 0 6px 3px rgba(48, 79, 254, 0.2);
+      border-radius: 23px;
+  }
+  .form-signin .btn:hover, .form-signin .btn:focus {
+      background: #0127fa;
+      border: 1px solid #0127fa;
+  }
+  .text-error {
+      color: #e53935;
+  }

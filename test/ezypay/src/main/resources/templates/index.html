@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Subscription Form</title>
+
+<div th:replace="fragments/header :: header-css" />
+
+<style type="text/css">
+.ml5 {
+	margin: 20px 10px 30px 10px;
+}
+
+.no-focus:focus {
+outline:none;
+background-color:#fff;
+border-color:#ccc;
+}
+</style>
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+<script type="text/javascript" th:src="@{/js/jquery-3.0.0.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-ui.min.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div th:replace="fragments/header :: header" />
+	<div class="container-fluid">
+		<!-- uiView: -->
+		<div class="main ng-scope" ui-view="" style="">
+			<div class="box ng-scope">
+				<div class="title">
+					<h2>Subscription Form</h2>
+				</div>
+				<!-- uiView: -->
+				<div ui-view="" class="ng-scope" style="">
+					<!-- uiView: -->
+					<div ui-view="" class="ng-scope">
+						<div class="toolbar">
+							<div class="toolbar">
+								<form action="subscription" method="post" >
+									<div class="form-group ml5">
+										Please enter the amount to charge: <input type="text"
+											name="amount" id="amount">
+									</div>
+									<div class="form-group ml5">
+										Subscription Type: 
+										<select class="btn btn-default no-focus" id="subscriptionType" name="subscriptionType"><option
+												th:each="type : ${T(com.test.ezypay.enumclass.subscriptionType).values()}"
+												th:value="${type}" th:text="${type}" ></option>									
+									</select>
+									</div>
+									
+									<div class="form-group ml5">
+										Day of Week: 
+										<select class="btn btn-default no-focus" name="dayOfWeek"><option
+												th:each="day : ${T(com.test.ezypay.enumclass.Day).values()}"
+												th:value="${day}" th:text="${day}"></option>									
+									</select>
+									</div>
+									
+									<div class="form-group ml5">
+										Day of month (1-31): <input type="text" id="day" name="dayOfMonth" />
+										<span style="color:red"> **The subscription type is MONTHLY only need to fill in</span>
+									</div>
+									
+									
+									<div class="form-group ml5">
+										Start Date: <input type="text" id="datepicker1" name="startDate" />
+									</div>
+									
+									<div class="form-group ml5">
+										End Date: <input type="text" id="datepicker2"  name="endDate" />
+									</div>
+									
+				
+									<button type="submit" id="submit" class="btn btn-primary ng-binding ng-scope">Submit</button>
+								</form>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div th:replace="fragments/footer :: footer"/>
+<script type="text/javascript" th:inline="javascript">
+
+
+	$("#submit").click(function() {
+		var checkAmt = $("#amount").val();
+		var checkDay = $("#day").val();
+		var type=$("#subscriptionType").val();
+
+		if (checkAmt == 0 || checkAmt == null) {
+			alert("please fill in the amount fields");
+			return false;
+		}
+		
+		if(type== 'MONTHLY'){
+			if(checkDay ==''|| checkDay>'31' || checkDay<'1'){
+				alert("Please fill in the day in (1-31) only");
+				document.getElementById ('day').value = "";
+				return false;
+			}
+		}
+	});
+
+	$(document).ready(
+			function() {
+				$('#datepicker1').val(new Date().toISOString().slice(0, 10));
+				$('#datepicker1').datepicker(
+						{
+							dateFormat : "yy-mm-dd",
+							minDate : new Date(),
+							onSelect : function(dateStr) {
+								$("#datepicker2").val(dateStr);
+								$("#datepicker2").datepicker("option", {
+									minDate : new Date(dateStr)
+								})
+								$("#datepicker2").datepicker(
+										"option",
+										{
+											maxDate : new Date(new Date()
+													.setMonth(new Date(dateStr)
+															.getMonth() + 3))
+										})
+
+							}
+						});
+
+				$('#datepicker2').val(new Date().toISOString().slice(0, 10));
+				$('#datepicker2').datepicker({
+					dateFormat : "yy-mm-dd",
+				});
+
+			});
+</script>
+ </body>
+</html>
